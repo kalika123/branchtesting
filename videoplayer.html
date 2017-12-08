@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+	video {
+		position:absolute;
+		left:50%;
+		top:50%;
+		-webkit-transform:translate(-50%,-50%);
+		transform:translate(-50%,-50%);
+	}
+</style>
+
+<video width="850" height="480" autoplay="autoplay">
+	<source src="http://localhost:9999/stream.ogg"  type='video/ogg'>   
+</video>
+
+<script>
+	window.onresize = function(event) {
+		scaleVideo();
+	};
+
+	function scaleVideo() {
+    var vid = document.getElementsByTagName('video')[0];
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+
+    if (w/16 >= h/9) {
+        vid.setAttribute('width', w);
+        vid.setAttribute('height', 'auto');
+    } else {
+        vid.setAttribute('width', 'auto');
+        vid.setAttribute('height', h);
+    }
+}
+</script>
+
+</html>
